@@ -6,6 +6,6 @@
         - @note.errors.full_messages.each do |message|
           %li= message
 = simple_form_for(@note, html: { class: 'form-horizontal' }) do |f|
-  = f.input :title, wrapper_html: { class: 'form-group' }
-  = f.input :content, wrapper_html: { class: 'form-group' }
-  = f.button :submit
+  = f.input :title, input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group' }
+  = f.input :content, input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group' }
+  = f.button :submit, class: 'btn btn-default pull-right'

@@ -1,0 +1,13 @@
+%p.alert.alert-info#notice= notice
+%h1 All Notes
+%p= link_to 'New Note', new_note_path
+
+- @notes.each do |note|
+  .row
+    .col-md-10.col-offset-1
+      = link_to note.title, note
+      = link_to 'Edit', edit_note_path(note)
+      = link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' }
+  .row
+    .col-md-10.col-offset-1
+      = note.content
