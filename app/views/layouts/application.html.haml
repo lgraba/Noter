@@ -8,5 +8,12 @@
 		%meta{:name => "viewport", :content => "width=device-width, initial-scale=1"}/
 	%body
 
+		.container.notices
+			.row
+				.col-md-12
+					- flash.each do |name, msg|
+						= content_tag :div, msg, class: "alert alert-info"
+		
 		.container
+
 			= yield
