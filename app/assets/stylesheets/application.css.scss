@@ -16,3 +16,7 @@
 @import "bootstrap";
 @import "notes";
 @import "welcome";
+
+body { padding-top: 50px; }
+
+textarea { min-height: 400px; }

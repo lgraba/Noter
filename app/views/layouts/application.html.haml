@@ -7,13 +7,29 @@
 		= csrf_meta_tags
 		%meta{:name => "viewport", :content => "width=device-width, initial-scale=1"}/
 	%body
+		.container
+			%nav.navbar.navbar-default.navbar-fixed-top
+				.container-fluid
+					.navbar-header
+						%button.navbar-toggle.collapsed{ :type => "button", :'data-toggle' => "collapse", :'data-target' => "#navigation" }
+							%span.icon-bar
+							%span.icon-bar
+							%span.icon-bar
+						=link_to "Noter", root_path, class: "navbar-brand"
+					.collapse.navbar-collapse#navigation
 
-		.container.notices
+						%ul.nav.navbar-nav.navbar-right
+							- if user_signed_in?
+								%li= link_to current_user.email, edit_user_registration_path
+								%li= link_to "New Note", new_note_path
+								%li= link_to "Sign Out", destroy_user_session_path, :method => :delete
+							- else
+								%li= link_to "Sign Up!", new_user_registration_path
+								%li= link_to "Sign In", new_user_session_path
+
 			.row
 				.col-md-12
 					- flash.each do |name, msg|
 						= content_tag :div, msg, class: "alert alert-info"
-		
-		.container
 
 			= yield
