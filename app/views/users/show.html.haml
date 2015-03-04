@@ -1,6 +1,9 @@
 %p
+	%strong Name:
+	= @user.name
+%p
 	%strong Email:
 	= @user.email
 
-= link_to 'Edit', edit_user_path(@user) 
+= link_to 'Edit', edit_user_registration_path
 = link_to 'Back', root_path
